@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>PEQ Calibration — parametric EQ profiles for KZ EDX Pro and Redmi 12</title>
+<meta name="description" content="Measured parametric EQ profiles for the KZ EDX Pro (IEC 711 and B&K 5128) and the Redmi 12 speaker. Preview the response, copy the preset, import into Poweramp.">
+<meta name="theme-color" content="#0b0d12">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b0d12'/%3E%3Cpath d='M3 20c4 0 4-9 8-9s4 12 9 12 4-7 9-7' fill='none' stroke='%234fd8ff' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<script>try{var t=localStorage.getItem("peq-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V7a2 2 0 0 1 2-2h8"/></symbol>
+<symbol id="i-dl" viewBox="0 0 24 24"><path d="M12 4v11m-5-4 5 5 5-5M5 20h14"/></symbol>
+<symbol id="i-ok" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-iem" viewBox="0 0 24 24"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4.500" height="6.500" rx="1.800"/><rect x="16.500" y="14" width="4.500" height="6.500" rx="1.800"/></symbol>
+<symbol id="i-ph" viewBox="0 0 24 24"><rect x="6.500" y="2.500" width="11" height="19" rx="2.500"/><path d="M10 6.500h4M9.500 17.500h5M9.500 14.500h5"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.600 5.600 7 7m10 10 1.400 1.400m0-12.800L17 7M7 17l-1.400 1.400"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.500A8 8 0 1 1 9.500 4a6.500 6.500 0 0 0 10.500 10.500z"/></symbol>
+<symbol id="i-max" viewBox="0 0 24 24"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5zM3 13l9 5 9-5"/></symbol>
+</defs></svg>
+
+<a class="skip" href="#bench">Skip to profiles</a>
+<header class="bar">
+  <a class="brand" href="#top" aria-label="PEQ Calibration"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9"/><path d="M3 20c4 0 4-9 8-9s4 12 9 12 4-7 9-7"/></svg><span>PEQ Calibration</span></a>
+  <nav aria-label="Sections"><a href="#bench">Profiles</a><a href="#poweramp">Poweramp</a><a href="#method">Method</a></nav>
+  <button class="icon" id="theme" type="button" aria-label="Toggle theme"><svg class="ic sun"><use href="#i-sun"/></svg><svg class="ic moon"><use href="#i-moon"/></svg></button>
+</header>
+
+<main id="top">
+<section class="intro">
+  <p class="kicker">Parametric EQ · KZ EDX Pro · Redmi 12</p>
+  <h1>Sixteen EQ profiles,<br><em>each one measured.</em></h1>
+  <p class="lede">Every preset below is a short list of filters laid over a measured frequency response. Pick a device, watch the correction reshape its curve, then copy the preset straight into Poweramp.</p>
+</section>
+
+<section id="bench" class="bench" aria-label="Profile workbench">
+  <div class="devs" id="devs" role="tablist" aria-label="Device"></div>
+  <div class="grid">
+    <aside class="rail" aria-label="Profiles">
+      <div class="rail-h"><h2>Profiles</h2><label class="cmp"><input type="checkbox" id="cmpOn"><span class="sw" aria-hidden="true"></span>Compare</label></div>
+      <ul id="list" class="list"></ul>
+    </aside>
+    <article class="detail" id="detail"></article>
+  </div>
+</section>
+
+<section class="overlay" aria-labelledby="h-ov">
+  <div class="sec-h"><h2 id="h-ov">All ten 711 profiles, one graph</h2><p>The original comparison plot, including the Harman IE 2019 target and the raw measurement.</p></div>
+  <button class="shot wide" type="button" data-zoom="kz_edx_pro_711_comparison" aria-label="Open comparison graph full size"><img src="assets/img/kz_edx_pro_711_comparison.webp" alt="Frequency response comparison of ten KZ EDX Pro profiles on an IEC 711 coupler" loading="lazy" width="1600" height="917"><span class="zoom"><svg class="ic"><use href="#i-max"/></svg>Enlarge</span></button>
+</section>
+
+<section id="poweramp" class="how" aria-labelledby="h-pa">
+  <div class="sec-h"><h2 id="h-pa">Import into Poweramp</h2><p>Two minutes, no file manager needed.</p></div>
+  <ol class="steps">
+    <li><h3>Copy the preset</h3><p>Choose a profile above and press <b>Copy preset</b>, or download the <code>.txt</code>. The format is the common Preamp / Filter text used by AutoEq and Equalizer APO.</p></li>
+    <li><h3>Open the parametric equalizer</h3><p>In Poweramp go to <b>Equalizer</b> and switch to the <b>Parametric</b> view.</p></li>
+    <li><h3>Import</h3><p>Open the menu in that view, choose the import option, and paste or pick the file. Shelves arrive as low and high shelf bands.</p></li>
+    <li><h3>Check the preamp</h3><p>The preset carries a negative preamp so boosted bands cannot clip. Leave it as imported.</p></li>
+  </ol>
+  <p class="note">Menu labels vary slightly between Poweramp builds. The same text also imports into other apps that read AutoEq text, including RootlessJamesDSP.</p>
+</section>
+
+<section id="method" class="method" aria-labelledby="h-m">
+  <div class="sec-h"><h2 id="h-m">How the curves are made</h2></div>
+  <div class="cols">
+    <div><h3>The data</h3><p>Raw responses for the KZ EDX Pro on an IEC 711 coupler and a B&amp;K 5128 fixture, plus the Redmi 12 speaker. All three are normalised to 0 dB at 1 kHz.</p></div>
+    <div><h3>The prediction</h3><p>Each filter is evaluated as a 48 kHz biquad, summed, and added to the raw response. The preamp is excluded from the curve and shown separately.</p></div>
+    <div><h3>The limits</h3><p>This is a prediction, not a re-measurement. Ear shape, seal and tips move real results by several dB, especially above 4 kHz. The 5128 data has only 42 points, so its curve is coarser.</p></div>
+  </div>
+  <dl class="hw">
+    <div><dt>IEM</dt><dd>KZ EDX Pro — 10 mm dual-magnet dynamic driver, 24 Ω, 112 dB/mW</dd></div>
+    <div><dt>Speaker</dt><dd>Xiaomi Redmi 12 — single bottom-firing mono driver, small chamber</dd></div>
+    <div><dt>Source</dt><dd>3.5 mm phone jack, Poweramp</dd></div>
+  </dl>
+</section>
+</main>
+
+<footer><span>PEQ Calibration · by Noushad M.</span><span>Static site · no tracking · all curves computed in your browser</span></footer>
+
+<dialog id="lb" aria-label="Graph viewer"><button class="icon close" type="button" aria-label="Close"><svg class="ic"><use href="#i-x"/></svg></button><img alt=""></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
