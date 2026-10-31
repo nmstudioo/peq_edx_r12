@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#09101d"/>
+    </linearGradient>
+    <linearGradient id="curveGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="chartGrid" width="80" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 80 0 L 0 0 0 60" fill="none" stroke="#334155" stroke-width="1" stroke-opacity="0.4"/>
+    </pattern>
+  </defs>
+
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  
+  <!-- Chart Area -->
+  <g transform="translate(80, 180)">
+    <rect width="1120" height="380" fill="url(#chartGrid)" rx="8"/>
+    
+    <!-- 0dB Line -->
+    <line x1="0" y1="190" x2="1120" y2="190" stroke="#475569" stroke-width="1" stroke-dasharray="4 4"/>
+    
+    <!-- Frequency Response Curve (EQ Profile) -->
+    <path d="M0 190 C50 190, 100 210, 150 210 C200 210, 250 160, 350 160 C450 160, 500 120, 600 120 C700 120, 750 160, 800 160 C900 160, 1000 190, 1120 190" fill="none" stroke="#2dd4bf" stroke-width="4" stroke-linecap="round"/>
+    
+    <!-- Filled Area under curve -->
+    <path d="M0 190 C50 190, 100 210, 150 210 C200 210, 250 160, 350 160 C450 160, 500 120, 600 120 C700 120, 750 160, 800 160 C900 160, 1000 190, 1120 190 L1120 380 L0 380 Z" fill="url(#curveGrad)"/>
+
+    <!-- Data points -->
+    <circle cx="150" cy="210" r="5" fill="#0f172a" stroke="#2dd4bf" stroke-width="2"/>
+    <circle cx="350" cy="160" r="5" fill="#0f172a" stroke="#2dd4bf" stroke-width="2"/>
+    <circle cx="600" cy="120" r="5" fill="#0f172a" stroke="#2dd4bf" stroke-width="2"/>
+    <circle cx="800" cy="160" r="5" fill="#0f172a" stroke="#2dd4bf" stroke-width="2"/>
+
+    <!-- Axis Labels -->
+    <g font-family="monospace" font-size="12" fill="#64748b">
+      <text x="0" y="400">20 Hz</text>
+      <text x="300" y="400">200 Hz</text>
+      <text x="560" y="400">2 kHz</text>
+      <text x="820" y="400">10 kHz</text>
+      <text x="1060" y="400">20 kHz</text>
+      
+      <text x="-40" y="195" fill="#2dd4bf">0 dB</text>
+      <text x="-40" y="255" fill="#64748b">-6 dB</text>
+      <text x="-40" y="315" fill="#64748b">-12 dB</text>
+    </g>
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(80, 80)">
+    <text x="0" y="0" font-family="'Inter Tight', -apple-system, sans-serif" font-weight="800" font-size="52" fill="#ffffff" letter-spacing="-1">PEQ · Calibration Profiles</text>
+    <text x="0" y="36" font-family="'Inter', -apple-system, sans-serif" font-weight="400" font-size="22" fill="#94a3b8" letter-spacing="1">Sixteen parametric-EQ profiles for KZ EDX Pro and Redmi 12.</text>
+  </g>
+
+  <!-- Badges -->
+  <g transform="translate(80, 580)">
+    <rect x="0" y="0" width="100" height="24" rx="4" fill="#2dd4bf" opacity="0.15"/>
+    <text x="12" y="16" font-family="monospace" font-size="12" font-weight="600" fill="#2dd4bf">16 PROFILES</text>
+
+    <rect x="110" y="0" width="180" height="24" rx="4" fill="#3b82f6" opacity="0.15"/>
+    <text x="122" y="16" font-family="monospace" font-size="12" font-weight="600" fill="#60a5fa">POWERAMP READY</text>
+
+    <rect x="300" y="0" width="140" height="24" rx="4" fill="#475569" opacity="0.3"/>
+    <text x="312" y="16" font-family="monospace" font-size="12" font-weight="600" fill="#94a3b8">IEC 711 / 5128</text>
+  </g>
+</svg>
